@@ -22,13 +22,14 @@ public class EnemyBase : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     // Shoots a BulletPrefab at several angles at the parameters of the Angles. Angles and Speeds need to be the same
     public virtual void Shoot(Vector3 ShootPosition ,GameObject BulletPrefab, float[] Angles, float[] Speeds)
     {
         for(int x = 0; x < Angles.Length; x++)
         {
             GameObject spawnedObject = Instantiate(BulletPrefab, ShootPosition, Quaternion.identity.normalized);
-
+            spawnedObject.GetComponent<BulletBase>().StartProjectile(Angles[x], Speeds[x], true);
         }
     }
     void Start()

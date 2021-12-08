@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipMovement : MonoBehaviour
+public class ShipBase : MonoBehaviour
 {
+    //invurnability till recharge
+    private float invulTime;
+
+    private float invulTimeLeft;
+
+    private int maxHealth;
+
+    private int health;
 
     private Rigidbody2D player;
 
@@ -18,6 +26,7 @@ public class ShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Movement
         float xAxis = Input.GetAxis("Horizontal");
         float yAxis = Input.GetAxis("Vertical");
 
@@ -26,8 +35,21 @@ public class ShipMovement : MonoBehaviour
 
         float angle = Mathf.Atan2(player.velocity.y, player.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        //Invurnablity time
+        if(invulTimeLeft > 0)
+        {
+            invulTimeLeft -= Time.deltaTime;
+        }
+        //
     }
-
+    public void damagePlayer(int damage)
+    {
+        if (invulTimeLeft > 0)
+        {
+            health -= damage;
+            invulTimeLeft = invulTime;
+        }
+    }
     private void clampVelocity()
     {
         float x = Mathf.Clamp(player.velocity.x, -maxVelocity, maxVelocity);
