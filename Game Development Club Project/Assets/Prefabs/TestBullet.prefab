@@ -49,6 +49,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -102,8 +103,8 @@ MonoBehaviour:
   IsEnemy: 0
   borderXMin: -10
   borderXMax: 10
-  borderYMin: -10
-  borderYMax: 10
+  borderYMin: -7
+  borderYMax: 7
   ExplosionResidue: {fileID: 6636768730639187608, guid: 57ebd4e6df6ce684591da25df87535b6,
     type: 3}
 --- !u!50 &8891532445930218231

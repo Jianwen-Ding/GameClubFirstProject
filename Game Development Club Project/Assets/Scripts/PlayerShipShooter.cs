@@ -32,7 +32,8 @@ public class PlayerShipShooter : MonoBehaviour
     {
         Vector3 mouseGetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float AngleToIt = ShortcutFunctions.AngleBetweenTwoPoints(bulletHoleLocation.x + gameObject.transform.position.x, bulletHoleLocation.y + gameObject.transform.position.y, mouseGetPosition.x, mouseGetPosition.y);
-        Instantiate(ShootEffects, gameObject.transform.position, Quaternion.identity.normalized);
+        //Commented to reduce spam of empties
+        //Instantiate(ShootEffects, gameObject.transform.position, Quaternion.identity.normalized);
         for (int x = 0; x < anglesShoot.Length; x++)
         {
             GameObject spawnedObject = Instantiate(BulletPrefab, new Vector3(bulletHoleLocation.x + gameObject.transform.position.x, bulletHoleLocation.y + gameObject.transform.position.y ), Quaternion.identity.normalized);
