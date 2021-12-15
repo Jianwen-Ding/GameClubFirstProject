@@ -7,6 +7,7 @@ public class EnemyBase : MonoBehaviour
     //imma be honest i suck at public and private varibles ill work on it more later
     //this class is meant to be inherited
     private int Health;
+    private int Status;
     [SerializeField]
     private GameObject BulletPrefab;
     //Instantiates a single object upon death, that object that can be used to spawn particles or show a single animation

@@ -38,6 +38,6 @@ public class BulletBase : MonoBehaviour
         this.Angle = Angle;
         this.Speed = Speed;
         selfRigidBody = gameObject.GetComponent<Rigidbody2D>();
-        selfRigidBody.velocity = AngleMaths.locationOutOfAngle(Speed, Angle);
+        selfRigidBody.velocity = ShortcutFunctions.locationOutOfAngle(Speed, Angle);
     }
 }
