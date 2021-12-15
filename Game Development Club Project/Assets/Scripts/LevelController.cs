@@ -36,6 +36,10 @@ public class LevelController : MonoBehaviour
     {
         EnemiesOnField = ShortcutFunctions.addArrays(EnemiesOnField, enemiesAdded);
     }
+    private void startLevelsEnemyWaves()
+    {
+
+    }
     private void SpawnEnemies(int L)
     {
         int currentLevelOn = 0;
