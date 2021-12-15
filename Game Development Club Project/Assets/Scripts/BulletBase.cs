@@ -14,6 +14,14 @@ public class BulletBase : MonoBehaviour
     [SerializeField]
     private bool IsEnemy;
     [SerializeField]
+    private float borderXMin;
+    [SerializeField]
+    private float borderXMax;
+    [SerializeField]
+    private float borderYMin;
+    [SerializeField]
+    private float borderYMax;
+    [SerializeField]
     private GameObject ExplosionResidue;
     private Rigidbody2D selfRigidBody;
     
@@ -39,5 +47,12 @@ public class BulletBase : MonoBehaviour
         this.Speed = Speed;
         selfRigidBody = gameObject.GetComponent<Rigidbody2D>();
         selfRigidBody.velocity = ShortcutFunctions.locationOutOfAngle(Speed, Angle);
+    }
+    public void Update()
+    {
+       if(gameObject.transform.position.x < borderXMin || gameObject.transform.position.x > borderXMax || gameObject.transform.position.y < borderYMin || gameObject.transform.position.y > borderYMax)
+        {
+            Destroy(gameObject);
+        }
     }
 }

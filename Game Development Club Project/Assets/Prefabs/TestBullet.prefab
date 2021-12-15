@@ -99,6 +99,11 @@ MonoBehaviour:
   Damage: 0
   Angle: 0
   Speed: 0
+  IsEnemy: 0
+  borderXMin: -10
+  borderXMax: 10
+  borderYMin: -10
+  borderYMax: 10
   ExplosionResidue: {fileID: 6636768730639187608, guid: 57ebd4e6df6ce684591da25df87535b6,
     type: 3}
 --- !u!50 &8891532445930218231
