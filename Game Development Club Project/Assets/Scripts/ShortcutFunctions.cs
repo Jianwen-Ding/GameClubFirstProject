@@ -17,7 +17,16 @@ public class ShortcutFunctions : MonoBehaviour
     {
         return new Vector2(Length*Mathf.Cos(Mathf.Deg2Rad *Angle), Length * Mathf.Sin(Mathf.Deg2Rad * Angle));
     }
-    //Removes null from array of GameObjects
+    //Changes arrays
+    public static float[] addNumToAll(float[] initial, float add)
+    {
+        float[] finalFloat = new float[initial.Length];
+        for (int i = 0; i < initial.Length; i++)
+        {
+            finalFloat[i] = initial[i] + add;
+        }
+        return finalFloat;
+    }
     public static GameObject[] compactGameObjectArray(GameObject[] compactObject)
     {
         int amountOfNonNull = 0;
@@ -62,5 +71,22 @@ public class ShortcutFunctions : MonoBehaviour
         }
         returnArray[returnArray.Length - 1] = Object2;
         return returnArray;
+    }
+    //Location and rigid body alter
+    public static void changeVelocityY(float newYVelocity, Rigidbody2D rigidbodySet)
+    {
+        rigidbodySet.velocity = new Vector2(rigidbodySet.velocity.x, newYVelocity);
+    }
+    public static void changeVelocityX(float newXVelocity, Rigidbody2D rigidbodySet)
+    {
+        rigidbodySet.velocity = new Vector2(newXVelocity, rigidbodySet.velocity.y);
+    }
+    public static void changeLocationY(float newYLocation, GameObject gameobjectSet)
+    {
+        gameobjectSet.transform.position = new Vector3(gameobjectSet.transform.position.x, newYLocation, gameobjectSet.transform.position.z);
+    }
+    public static void changeLocationX(float newXLocation, GameObject gameobjectSet)
+    {
+        gameobjectSet.transform.position = new Vector3(newXLocation , gameobjectSet.transform.position.y , gameobjectSet.transform.position.z );
     }
 }
