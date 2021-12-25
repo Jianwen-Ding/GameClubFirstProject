@@ -159,6 +159,11 @@ MonoBehaviour:
   baseRigidbody: {fileID: 0}
   angle: 0
   Enemy: {fileID: 0}
+  LootDropsPossible:
+  - {fileID: 6258032686275603893, guid: 103610582930c8e489d62ecf93fcf988, type: 3}
+  - {fileID: 5879536621162771432, guid: 71d6185ae73846a4fa09a1054d79d7c3, type: 3}
+  - {fileID: 7120164135324257451, guid: f26694f4b5a8b8c41886676077d5194f, type: 3}
+  LootDropPossibility: 10
   DestroyParticleEffect: {fileID: 6636768730639187608, guid: 57ebd4e6df6ce684591da25df87535b6,
     type: 3}
   EnemiesSpawn:

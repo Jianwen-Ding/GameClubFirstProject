@@ -20,10 +20,13 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     private float[] rangeOfEnemySpawnYMax;
     //Non adjustable
+    [SerializeField]
     private static int Level = 0;
     //Switches background image based on Stage varible
+    [SerializeField]
     private static int Stage = 0;
-    private static GameObject[] EnemiesOnField;
+    [SerializeField]
+    private GameObject[] EnemiesOnField;
     public int LevelGet()
     {
         return Level;
@@ -35,10 +38,6 @@ public class LevelController : MonoBehaviour
     public void addEnemy(GameObject[] enemiesAdded)
     {
         EnemiesOnField = ShortcutFunctions.addArrays(EnemiesOnField, enemiesAdded);
-    }
-    private void startLevelsEnemyWaves()
-    {
-
     }
     private void SpawnEnemies(int L)
     {
@@ -70,7 +69,7 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnEnemies(Level);
     }
 
     // Update is called once per frame

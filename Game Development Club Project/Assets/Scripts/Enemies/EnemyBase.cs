@@ -33,6 +33,10 @@ public class EnemyBase : MonoBehaviour
     public float angle;
     [SerializeField]
     public GameObject Enemy;
+    [SerializeField]
+    public GameObject[] LootDropsPossible;
+    [SerializeField]
+    public float LootDropPossibility;
     //Instantiates a single object upon death, that object that can be used to spawn particles or show a single animation
     [SerializeField]
     private GameObject DestroyParticleEffect;
@@ -43,6 +47,10 @@ public class EnemyBase : MonoBehaviour
         if (Health <= 0)
         {
             Instantiate(DestroyParticleEffect, gameObject.transform.position, Quaternion.identity.normalized);
+            if(Random.Range(0,10) <= LootDropPossibility)
+            {
+                Instantiate(LootDropsPossible[(int)Random.Range(0, (float)LootDropsPossible.Length - (float)0.11)],gameObject.transform.position, Quaternion.identity.normalized);
+            }
             Destroy(gameObject);
         }
     }
