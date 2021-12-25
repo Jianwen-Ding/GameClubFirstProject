@@ -6,15 +6,15 @@ public class EnemyBase : MonoBehaviour
 {
     //imma be honest i suck at public and private varibles ill work on it more later
     //this class is meant to be inherited
-    
+    [SerializeField]
+    private float maxSpeed;
     [SerializeField]
     private int Health;
     [SerializeField]
     private float TimeUntilFire;
     [SerializeField]
     private float TimeUntilFireLeft;
-    [SerializeField]
-    private GameObject BulletPrefab;
+    public GameObject BulletPrefab;
     [SerializeField]
     public float[] AngleOfBullets;
     [SerializeField]
@@ -28,9 +28,9 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     float YMin;
     [SerializeField]
-    Rigidbody2D baseRigidbody;
+    public Rigidbody2D baseRigidbody;
     [SerializeField]
-    float angle;
+    public float angle;
     [SerializeField]
     public GameObject Enemy;
     //Instantiates a single object upon death, that object that can be used to spawn particles or show a single animation
@@ -48,7 +48,7 @@ public class EnemyBase : MonoBehaviour
     }
     
     // Shoots a BulletPrefab at several angles at the parameters of the Angles. Angles and Speeds need to be the same
-    private void Shoot(Vector3 ShootPosition ,GameObject BulletPrefab, float[] Angles, float[] Speeds)
+    public void Shoot(Vector3 ShootPosition ,GameObject BulletPrefab, float[] Angles, float[] Speeds)
     {
         for(int x = 0; x < Angles.Length; x++)
         {
@@ -70,9 +70,21 @@ public class EnemyBase : MonoBehaviour
     {
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<ShipBase>().damagePlayer(1);
+        }
+    }
     // Update is called once per frame
     private void Update()
     {
+        if (Mathf.Sqrt(baseRigidbody.velocity.x * baseRigidbody.velocity.x + baseRigidbody.velocity.y * baseRigidbody.velocity.y) > maxSpeed)
+        {
+
+            baseRigidbody.velocity = ShortcutFunctions.locationOutOfAngle(maxSpeed, ShortcutFunctions.AngleBetweenTwoPoints(0,0, baseRigidbody.velocity.x, baseRigidbody.velocity.y));
+        }
         transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         HandleMovement();
         if (TimeUntilFireLeft < 0 )

@@ -5,9 +5,6 @@ using UnityEngine;
 public class PlayerShipShooter : MonoBehaviour
 {
 
-    //Upgrades varibles
-    [SerializeField]
-    private string playerStatus;
     [SerializeField]
     private float AngleDeviation;
     [SerializeField]
@@ -41,9 +38,9 @@ public class PlayerShipShooter : MonoBehaviour
             spawnedObject.GetComponent<BulletBase>().StartProjectile(AngleFinal, speedsShoot[x], false);
         }
     }
-    public void SwitchUpgrade(string Status, float[] angles, float[] speeds, float Cooldown, float AngleDev)
+    public void SwitchUpgrade(GameObject prefab, float[] angles, float[] speeds, float Cooldown, float AngleDev)
     {
-        playerStatus = Status;
+        BulletPrefab = prefab;
         AngleDeviation = AngleDev;
         anglesShoot = angles;
         speedsShoot = speeds;

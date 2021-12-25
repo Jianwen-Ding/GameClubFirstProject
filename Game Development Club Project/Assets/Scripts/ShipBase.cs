@@ -5,12 +5,13 @@ using UnityEngine;
 public class ShipBase : MonoBehaviour
 {
     //invurnability till recharge
+    [SerializeField]
     private float invulTime;
-
+    [SerializeField]
     private float invulTimeLeft;
-
+    [SerializeField]
     private int maxHealth;
-
+    [SerializeField]
     private int health;
 
     private Rigidbody2D player;
@@ -82,7 +83,7 @@ public class ShipBase : MonoBehaviour
     }
     public void damagePlayer(int damage)
     {
-        if (invulTimeLeft > 0)
+        if (invulTimeLeft <= 0)
         {
             health -= damage;
             invulTimeLeft = invulTime;
