@@ -46,7 +46,7 @@ public class LevelController : MonoBehaviour
         GameObject[] tempEnemies = new GameObject[50];
         for (int i = 0; i < enemyWaves.Length; i++)
         {
-            if (EnemiesOnField[i] == null)
+            if (enemyWaves[i] == null)
             {
                 currentLevelOn++;
             }

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  Health: 50
+  Health: 20
   TimeUntilFire: 6
   TimeUntilFireLeft: 0
   BulletPrefab: {fileID: 6636768730639187608, guid: 57ebd4e6df6ce684591da25df87535b6,

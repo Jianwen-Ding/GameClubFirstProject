@@ -355,19 +355,51 @@ MonoBehaviour:
   enemyWaves:
   - {fileID: 8856043008756808831, guid: c03a93d9fe377404cab21f27085c6a7a, type: 3}
   - {fileID: 0}
-  - {fileID: 5879536621162771432, guid: 71d6185ae73846a4fa09a1054d79d7c3, type: 3}
+  - {fileID: 8750116020083600023, guid: 39e191b0c39eb9f42916ba8fb1d8cc5f, type: 3}
   - {fileID: 0}
   - {fileID: 8557762549067122410, guid: 77260432e4852fd4d9e120e86d9da0ad, type: 3}
   - {fileID: 8557762549067122410, guid: 77260432e4852fd4d9e120e86d9da0ad, type: 3}
   - {fileID: 0}
   - {fileID: 8856043008756808831, guid: c03a93d9fe377404cab21f27085c6a7a, type: 3}
-  - {fileID: 5879536621162771432, guid: 71d6185ae73846a4fa09a1054d79d7c3, type: 3}
+  - {fileID: 8750116020083600023, guid: 39e191b0c39eb9f42916ba8fb1d8cc5f, type: 3}
   - {fileID: 0}
   - {fileID: 8557762549067122410, guid: 77260432e4852fd4d9e120e86d9da0ad, type: 3}
   - {fileID: 8557762549067122410, guid: 77260432e4852fd4d9e120e86d9da0ad, type: 3}
   - {fileID: 8557762549067122410, guid: 77260432e4852fd4d9e120e86d9da0ad, type: 3}
+  - {fileID: 0}
+  - {fileID: 8856043008756808831, guid: c03a93d9fe377404cab21f27085c6a7a, type: 3}
+  - {fileID: 8856043008756808831, guid: c03a93d9fe377404cab21f27085c6a7a, type: 3}
+  - {fileID: 8856043008756808831, guid: c03a93d9fe377404cab21f27085c6a7a, type: 3}
+  - {fileID: 8750116020083600023, guid: 39e191b0c39eb9f42916ba8fb1d8cc5f, type: 3}
+  - {fileID: 8557762549067122410, guid: 77260432e4852fd4d9e120e86d9da0ad, type: 3}
+  - {fileID: 0}
+  - {fileID: 3066600513693878166, guid: 3f87551a8f1735f43807b6f088ff91a0, type: 3}
+  - {fileID: 0}
+  - {fileID: 8123232032663652285, guid: 60adf58b5dc3ce646902c082c8581e2d, type: 3}
+  - {fileID: 0}
+  - {fileID: 8123232032663652285, guid: 60adf58b5dc3ce646902c082c8581e2d, type: 3}
+  - {fileID: 8557762549067122410, guid: 77260432e4852fd4d9e120e86d9da0ad, type: 3}
+  - {fileID: 8557762549067122410, guid: 77260432e4852fd4d9e120e86d9da0ad, type: 3}
+  - {fileID: 0}
+  - {fileID: 3593897370452491623, guid: b3658374d1bcc2144bcafa5b6d7d0811, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   enemyDeathThreshHold:
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
+  - 80
   - 80
   - 80
   - 80
@@ -379,7 +411,34 @@ MonoBehaviour:
   - -10
   - -10
   - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
+  - -10
   rangeOfEnemySpawnXMax:
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
   - 10
   - 10
   - 10
@@ -391,7 +450,27 @@ MonoBehaviour:
   - 5
   - 5
   - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
   rangeOfEnemySpawnYMax:
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
   - 7
   - 7
   - 7
@@ -435,7 +514,7 @@ MonoBehaviour:
   invulTimeLeft: 1
   maxHealth: 0
   health: 6
-  maxVelocity: 0.8
+  maxVelocity: 5
   XMax: 9
   YMax: 5.5
   XMin: -9
@@ -623,7 +702,7 @@ MonoBehaviour:
   - 0
   speedsShoot:
   - 20
-  shootCooldown: 0.1
+  shootCooldown: 1
   shootCooldownLeft: 0
   BulletPrefab: {fileID: 8891532445930218224, guid: 2354c82fd35a02d40b306657e690d767,
     type: 3}

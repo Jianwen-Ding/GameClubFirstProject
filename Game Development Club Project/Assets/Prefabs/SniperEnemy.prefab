@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d46ccbff7f7e7b479cb954eeacdda83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 3
   Health: 5
   TimeUntilFire: 2
   TimeUntilFireLeft: 0
@@ -56,9 +56,9 @@ MonoBehaviour:
   - 0
   SpeedsOfBullets:
   - 20
-  XMax: 10
+  XMax: 9
   YMax: 5
-  XMin: -10
+  XMin: -9
   YMin: -5
   baseRigidbody: {fileID: 0}
   angle: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   LootDropsPossible:
   - {fileID: 5879536621162771432, guid: 71d6185ae73846a4fa09a1054d79d7c3, type: 3}
   - {fileID: 6258032686275603893, guid: 103610582930c8e489d62ecf93fcf988, type: 3}
-  - {fileID: 8349567738740604178, guid: c39de92f9b43f6a46b8e1b206af9ed1b, type: 3}
+  - {fileID: 7120164135324257451, guid: f26694f4b5a8b8c41886676077d5194f, type: 3}
   LootDropPossibility: 1
   DestroyParticleEffect: {fileID: 6636768730639187608, guid: 57ebd4e6df6ce684591da25df87535b6,
     type: 3}
