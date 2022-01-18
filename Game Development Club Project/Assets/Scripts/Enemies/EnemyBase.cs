@@ -46,7 +46,7 @@ public class EnemyBase : MonoBehaviour
         //Death
         if (Health <= 0)
         {
-            Instantiate(DestroyParticleEffect, gameObject.transform.position, Quaternion.identity.normalized);
+            //Instantiate(DestroyParticleEffect, gameObject.transform.position, Quaternion.identity.normalized);
             if(Random.Range(0,10) <= LootDropPossibility)
             {
                 Instantiate(LootDropsPossible[(int)Random.Range(0, (float)LootDropsPossible.Length - (float)0.11)],gameObject.transform.position, Quaternion.identity.normalized);

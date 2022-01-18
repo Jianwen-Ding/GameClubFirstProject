@@ -21,7 +21,7 @@ public class LevelController : MonoBehaviour
     private float[] rangeOfEnemySpawnYMax;
     //Non adjustable
     [SerializeField]
-    private static int Level = 0;
+    public int Level = 0;
     //Switches background image based on Stage varible
     [SerializeField]
     private static int Stage = 0;

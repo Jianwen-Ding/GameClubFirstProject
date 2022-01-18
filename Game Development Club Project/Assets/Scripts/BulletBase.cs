@@ -34,13 +34,13 @@ public class BulletBase : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" && IsEnemy)
         {
-            Instantiate(ExplosionResidue, gameObject.transform.position, Quaternion.identity.normalized);
+            //Instantiate(ExplosionResidue, gameObject.transform.position, Quaternion.identity.normalized);
             collision.gameObject.GetComponent<ShipBase>().damagePlayer(Damage);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Enemy" && IsEnemy == false)
         {
-            Instantiate(ExplosionResidue, gameObject.transform.position, Quaternion.identity.normalized);
+            //Instantiate(ExplosionResidue, gameObject.transform.position, Quaternion.identity.normalized);
             collision.gameObject.GetComponent<EnemyBase>().DamageEnemy(Damage);
             Destroy(gameObject);
         }

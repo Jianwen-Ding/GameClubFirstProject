@@ -12,7 +12,7 @@ public class ShipBase : MonoBehaviour
     [SerializeField]
     private int maxHealth;
     [SerializeField]
-    private int health;
+    public int health;
 
     private Rigidbody2D player;
 
