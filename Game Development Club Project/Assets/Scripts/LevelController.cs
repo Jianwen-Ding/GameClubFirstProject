@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     //Adjustable Varibles, array divided by levels
@@ -43,6 +43,7 @@ public class LevelController : MonoBehaviour
     {
         int currentLevelOn = 0;
         int amountOfEnemies = 0;
+        bool gameOver = true;
         GameObject[] tempEnemies = new GameObject[50];
         for (int i = 0; i < enemyWaves.Length; i++)
         {
@@ -53,7 +54,12 @@ public class LevelController : MonoBehaviour
             else if (currentLevelOn == L)
             {
                 tempEnemies[amountOfEnemies] = Instantiate(enemyWaves[i], new Vector2(Random.Range(rangeOfEnemySpawnXMin[L], rangeOfEnemySpawnXMax[L]), Random.Range(rangeOfEnemySpawnYMin[L], rangeOfEnemySpawnYMax[L])), Quaternion.identity.normalized);
+                gameOver = false;
             }
+        }
+        if (gameOver)
+        {
+            SceneManager.LoadScene("Ending");
         }
         GameObject[] oldEnemies = ShortcutFunctions.compactGameObjectArray(EnemiesOnField);
         tempEnemies = ShortcutFunctions.compactGameObjectArray(tempEnemies);

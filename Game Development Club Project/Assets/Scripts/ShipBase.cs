@@ -13,6 +13,8 @@ public class ShipBase : MonoBehaviour
     private int maxHealth;
     [SerializeField]
     public int health;
+    [SerializeField]
+    private bool dead = true;
 
     private Rigidbody2D player;
 
@@ -39,47 +41,51 @@ public class ShipBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Movement
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxis("Vertical");
+        if (dead == false)
+        {
+            //Movement
+            float xAxis = Input.GetAxis("Horizontal");
+            float yAxis = Input.GetAxis("Vertical");
 
-        addVelocityY(yAxis);
-        addVelocityX(xAxis);
+            addVelocityY(yAxis);
+            addVelocityX(xAxis);
 
-        float angle = Mathf.Atan2(player.velocity.y, player.velocity.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        //Invurnablity time
-        if (invulTimeLeft > 0)
-        {
-            invulTimeLeft -= Time.deltaTime;
-        }
-        if (transform.position.x > XMax)
-        {
-            ShortcutFunctions.changeLocationX(XMax, gameObject);
-            ShortcutFunctions.changeVelocityX(-player.velocity.x, player);
-        }
-        if(transform.position.x < XMin)
-        {
-            ShortcutFunctions.changeLocationX(XMin, gameObject);
-            ShortcutFunctions.changeVelocityX(-player.velocity.x, player);
-        }
-        if (transform.position.y > YMax)
-        {
-            ShortcutFunctions.changeLocationY(YMax, gameObject);
-            ShortcutFunctions.changeVelocityY(-player.velocity.y, player);
-        }
-        if(transform.position.y < YMin)
-        {
-            ShortcutFunctions.changeLocationY(YMin, gameObject);
-            ShortcutFunctions.changeVelocityY(-player.velocity.y, player);
-        }
-        //Max Velocity Check
-        if (Mathf.Sqrt(player.velocity.x* player.velocity.x + player.velocity.y * player.velocity.y) > maxVelocity)
-        {
+            float angle = Mathf.Atan2(player.velocity.y, player.velocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            //Invurnablity time
+            if (invulTimeLeft > 0)
+            {
+                invulTimeLeft -= Time.deltaTime;
+            }
+            if (transform.position.x > XMax)
+            {
+                ShortcutFunctions.changeLocationX(XMax, gameObject);
+                ShortcutFunctions.changeVelocityX(-player.velocity.x, player);
+            }
+            if (transform.position.x < XMin)
+            {
+                ShortcutFunctions.changeLocationX(XMin, gameObject);
+                ShortcutFunctions.changeVelocityX(-player.velocity.x, player);
+            }
+            if (transform.position.y > YMax)
+            {
+                ShortcutFunctions.changeLocationY(YMax, gameObject);
+                ShortcutFunctions.changeVelocityY(-player.velocity.y, player);
+            }
+            if (transform.position.y < YMin)
+            {
+                ShortcutFunctions.changeLocationY(YMin, gameObject);
+                ShortcutFunctions.changeVelocityY(-player.velocity.y, player);
+            }
+            //Max Velocity Check
+            if (Mathf.Sqrt(player.velocity.x * player.velocity.x + player.velocity.y * player.velocity.y) > maxVelocity)
+            {
 
-            player.velocity = ShortcutFunctions.locationOutOfAngle(maxVelocity, angle);
+                player.velocity = ShortcutFunctions.locationOutOfAngle(maxVelocity, angle);
+            }
+            //
         }
-        //
+
     }
     public void damagePlayer(int damage)
     {
@@ -87,6 +93,10 @@ public class ShipBase : MonoBehaviour
         {
             health -= damage;
             invulTimeLeft = invulTime;
+            if(health < 1)
+            {
+                dead = true;
+            }
         }
     }
     private void clampVelocity()

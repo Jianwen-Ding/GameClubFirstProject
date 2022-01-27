@@ -27,16 +27,20 @@ public class PlayerShipShooter : MonoBehaviour
     }
     private void Shoot()
     {
-        Vector3 mouseGetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float AngleToIt = ShortcutFunctions.AngleBetweenTwoPoints(bulletHoleLocation.x + gameObject.transform.position.x, bulletHoleLocation.y + gameObject.transform.position.y, mouseGetPosition.x, mouseGetPosition.y);
-        //Commented to reduce spam of empties
-        //Instantiate(ShootEffects, gameObject.transform.position, Quaternion.identity.normalized);
-        for (int x = 0; x < anglesShoot.Length; x++)
+        if(gameObject.GetComponent<ShipBase>().health > 0)
         {
-            GameObject spawnedObject = Instantiate(BulletPrefab, new Vector3(bulletHoleLocation.x + gameObject.transform.position.x, bulletHoleLocation.y + gameObject.transform.position.y ), Quaternion.identity.normalized);
-            float AngleFinal = anglesShoot[x] + Random.Range(-AngleDeviation, AngleDeviation) + AngleToIt;
-            spawnedObject.GetComponent<BulletBase>().StartProjectile(AngleFinal, speedsShoot[x], false);
+            Vector3 mouseGetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float AngleToIt = ShortcutFunctions.AngleBetweenTwoPoints(bulletHoleLocation.x + gameObject.transform.position.x, bulletHoleLocation.y + gameObject.transform.position.y, mouseGetPosition.x, mouseGetPosition.y);
+            //Commented to reduce spam of empties
+            //Instantiate(ShootEffects, gameObject.transform.position, Quaternion.identity.normalized);
+            for (int x = 0; x < anglesShoot.Length; x++)
+            {
+                GameObject spawnedObject = Instantiate(BulletPrefab, new Vector3(bulletHoleLocation.x + gameObject.transform.position.x, bulletHoleLocation.y + gameObject.transform.position.y), Quaternion.identity.normalized);
+                float AngleFinal = anglesShoot[x] + Random.Range(-AngleDeviation, AngleDeviation) + AngleToIt;
+                spawnedObject.GetComponent<BulletBase>().StartProjectile(AngleFinal, speedsShoot[x], false);
+            }
         }
+        
     }
     public void SwitchUpgrade(GameObject prefab, float[] angles, float[] speeds, float Cooldown, float AngleDev)
     {

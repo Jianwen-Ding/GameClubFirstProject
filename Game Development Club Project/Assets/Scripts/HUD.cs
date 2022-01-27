@@ -19,8 +19,16 @@ public class HUD : MonoBehaviour
     {
         float waveNumber = 1 + GameObject.Find("Main Camera").GetComponent<LevelController>().Level;
         float health = GameObject.Find("Player").GetComponent<ShipBase>().health;
-        text.text = 
+        if(health >= 1)
+        {
+            text.text =
             "Health: " + health + "\n" +
             "Wave: " + waveNumber;
+        }
+        else
+        {
+            text.text = "Game Over" + "\n" +
+                waveNumber + " waves survived";
+        }
     }
 }
